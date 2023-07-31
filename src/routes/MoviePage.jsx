@@ -11,7 +11,7 @@ function MoviePage() {
   const {
     trendingMovies,
     topRatedMovies,
-    nowPlayingMovies,
+    upcomingMovies,
     genresIds,
     fetchSimilarMovies,
     fetchMovieReviews,
@@ -51,7 +51,7 @@ function MoviePage() {
     const combinedMovies = [
       ...trendingMovies,
       ...topRatedMovies,
-      ...nowPlayingMovies,
+      ...upcomingMovies,
       ...similarMovies,
     ];
     const movie = combinedMovies.find((movie) => movie.id === Number(id));
@@ -59,7 +59,7 @@ function MoviePage() {
     if (movie) {
       setMovieDisplayed(movie);
     }
-  }, [id, trendingMovies, topRatedMovies, nowPlayingMovies, similarMovies]);
+  }, [id, trendingMovies, topRatedMovies, upcomingMovies, similarMovies]);
 
   useEffect(() => {
     if (!watchList.some((item) => item.id === movieDisplayed.id)) {
