@@ -10,8 +10,6 @@ function App() {
     fetchTrendingMovies,
     setTopRatedMovies,
     fetchTopRatedMovies,
-    setUpcomingMovies,
-    fetchUpcomingMovies,
     setGenresIds,
     fetchGenresIds,
   } = useContext(MoviesContext);
@@ -20,12 +18,10 @@ function App() {
   const fetchData = async () => {
     const trendingResponse = await fetchTrendingMovies();
     const topRatedResponse = await fetchTopRatedMovies();
-    const upcomingResponse = await fetchUpcomingMovies();
     const genresResponse = await fetchGenresIds();
 
     setTrendingMovies(trendingResponse);
     setTopRatedMovies(topRatedResponse);
-    setUpcomingMovies(upcomingResponse);
     setGenresIds(genresResponse);
 
     setIsLoading(false);
