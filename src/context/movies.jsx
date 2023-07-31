@@ -8,7 +8,7 @@ const MoviesContext = createContext();
 function MoviesProvider({ children }) {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
-  const [upcomingMovies, setUpcomingMovies] = useState([]);
+  const [nowPlayingMovies, setNowPlayingMovies] = useState([]);
   const [genresIds, setGenresIds] = useState([]);
 
   const apiToken = process.env.VITE_API_TOKEN;
@@ -46,10 +46,10 @@ function MoviesProvider({ children }) {
     }
   };
 
-  const fetchUpcomingMovies = async () => {
+  const fetchNowPlayingMovies = async () => {
     try {
       const response = await axios.get(
-        "https://api.themoviedb.org/3/movie/upcoming",
+        "https://api.themoviedb.org/3/movie/now_playing",
         { headers }
       );
 
@@ -109,9 +109,9 @@ function MoviesProvider({ children }) {
     topRatedMovies,
     setTopRatedMovies,
     fetchTopRatedMovies,
-    upcomingMovies,
-    setUpcomingMovies,
-    fetchUpcomingMovies,
+    nowPlayingMovies,
+    setNowPlayingMovies,
+    fetchNowPlayingMovies,
     genresIds,
     setGenresIds,
     fetchGenresIds,
