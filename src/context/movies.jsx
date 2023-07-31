@@ -15,7 +15,7 @@ function MoviesProvider({ children }) {
 
   const headers = {
     accept: "application/json",
-    Authorization: {apiToken},
+    Authorization: `${apiToken}`,
   };
 
   const fetchTrendingMovies = async () => {
