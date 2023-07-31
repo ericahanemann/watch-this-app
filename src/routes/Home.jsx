@@ -169,7 +169,7 @@ function Home() {
         />
         <MovieList
           goBack={false}
-          listTitle="Upcoming"
+          listTitle="Now playing"
           moviesToDisplay={nowPlayingMovies}
         />
       </div>
