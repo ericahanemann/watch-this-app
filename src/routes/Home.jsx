@@ -7,7 +7,7 @@ import { BsFillBookmarkCheckFill } from "react-icons/bs";
 import MovieList from "../components/MovieList";
 
 function Home() {
-  const { trendingMovies, topRatedMovies, genresIds } =
+  const { trendingMovies, topRatedMovies, upcomingMovies, genresIds } =
     useContext(MoviesContext);
   const { watchList, addToWatchList, removeFromWatchList } =
     useContext(UserListsContext);
@@ -166,6 +166,11 @@ function Home() {
           goBack={false}
           listTitle="Top Rated"
           moviesToDisplay={topRatedMovies}
+        />
+        <MovieList
+          goBack={false}
+          listTitle="Upcoming"
+          moviesToDisplay={upcomingMovies}
         />
       </div>
     </div>

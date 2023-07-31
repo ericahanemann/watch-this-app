@@ -8,6 +8,7 @@ const MoviesContext = createContext();
 function MoviesProvider({ children }) {
   const [trendingMovies, setTrendingMovies] = useState([]);
   const [topRatedMovies, setTopRatedMovies] = useState([]);
+  const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [genresIds, setGenresIds] = useState([]);
 
   const apiToken = process.env.VITE_API_TOKEN;
@@ -35,6 +36,20 @@ function MoviesProvider({ children }) {
     try {
       const response = await axios.get(
         "https://api.themoviedb.org/3/movie/top_rated",
+        { headers }
+      );
+
+      return response.data.results;
+    } catch (error) {
+      console.error("Request error:", error);
+      return [];
+    }
+  };
+
+  const fetchUpcomingMovies = async () => {
+    try {
+      const response = await axios.get(
+        "https://api.themoviedb.org/3/movie/upcoming",
         { headers }
       );
 
@@ -94,6 +109,9 @@ function MoviesProvider({ children }) {
     topRatedMovies,
     setTopRatedMovies,
     fetchTopRatedMovies,
+    upcomingMovies,
+    setUpcomingMovies,
+    fetchUpcomingMovies,
     genresIds,
     setGenresIds,
     fetchGenresIds,
