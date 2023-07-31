@@ -11,7 +11,7 @@ function MoviesProvider({ children }) {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [genresIds, setGenresIds] = useState([]);
 
-  const apiToken = process.env.VITE_API_TOKEN;
+  const apiToken = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmMmI1ODBmMzljMGYyNDZlMDNhN2UwMjg1ZmQ5OTE0NyIsInN1YiI6IjY0NjYyNjRjMmJjZjY3MDBmZTVlZmZkYiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.AfqDzyyXwrwFsaU1BYNgBB_K7Xm16NFiWUG-uJoI2QA';
 
   const headers = {
     accept: "application/json",
