@@ -11,10 +11,11 @@ function MoviesProvider({ children }) {
   const [upcomingMovies, setUpcomingMovies] = useState([]);
   const [genresIds, setGenresIds] = useState([]);
 
+  const apiToken = process.env.API_TOKEN;
+
   const headers = {
     accept: "application/json",
-    Authorization:
-      "removed for safety reasons",
+    Authorization: {apiToken},
   };
 
   const fetchTrendingMovies = async () => {
