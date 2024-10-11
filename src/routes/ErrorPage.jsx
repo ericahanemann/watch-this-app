@@ -1,5 +1,9 @@
 function ErrorPage() {
-  return <div className="mt-20">ErrorPage</div>;
+  return (
+    <div className="flex justify-center items-center w-screen h-screen">
+      Oops! Something went wrong...
+    </div>
+  );
 }
 
 export default ErrorPage;

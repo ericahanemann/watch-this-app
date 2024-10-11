@@ -19,8 +19,18 @@ function Home() {
     backgroundPosition: "center",
   };
   const movieInfoPath = `movie-info/${trendingMovies[activeMovieIndex].id}`;
-  let movieGenres = "";
+  const releaseDate = new Date(trendingMovies[activeMovieIndex].release_date);
+  const formattedReleaseDate = `${
+    releaseDate.getDate() > 9
+      ? releaseDate.getDate()
+      : `0${releaseDate.getDate()}`
+  }-${
+    releaseDate.getMonth() > 9
+      ? releaseDate.getMonth()
+      : `0${releaseDate.getMonth()}`
+  }-${releaseDate.getFullYear()}`;
 
+  let movieGenres = "";
   for (let i = 0; i < trendingMovies[activeMovieIndex].genre_ids.length; i++) {
     const genreIndex = genresIds.findIndex((genre) => {
       return genre.id === trendingMovies[activeMovieIndex].genre_ids[i];
@@ -117,12 +127,12 @@ function Home() {
               <div className="flex items-center gap-1 w-fit text-base text-highlights bg-secondary rounded px-1">
                 <BiStar className="text-base text-highlights" />
                 <div className="text-highlights">
-                  {trendingMovies[activeMovieIndex].vote_average}
+                  {trendingMovies[activeMovieIndex].vote_average.toFixed(1)}
                 </div>
               </div>
 
               <div className="flex gap-1 text-base font-semibold">
-                <div>{trendingMovies[activeMovieIndex].release_date} |</div>
+                <div>{formattedReleaseDate} |</div>
                 <div>{movieGenres}</div>
               </div>
             </div>

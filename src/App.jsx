@@ -37,14 +37,14 @@ function App() {
 
   if (isLoading) {
     return (
-      <div className="h-screen w-screen flex justify-center items-center">
+      <div className="h-screen w-screen flex justify-center items-center overflow-x-hidden">
         Loading...
       </div>
     );
   }
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <Navbar />
       <Outlet />
       <Footer />

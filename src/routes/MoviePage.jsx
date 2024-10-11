@@ -99,6 +99,17 @@ function MoviePage() {
     }
   }
 
+  const releaseDate = new Date(movieDisplayed.release_date);
+  const formattedReleaseDate = `${
+    releaseDate.getDate() > 9
+      ? releaseDate.getDate()
+      : `0${releaseDate.getDate()}`
+  }-${
+    releaseDate.getMonth() > 9
+      ? releaseDate.getMonth()
+      : `0${releaseDate.getMonth()}`
+  }-${releaseDate.getFullYear()}`;
+
   const movieBackdrop = {
     backgroundImage: `url(https://image.tmdb.org/t/p/original${movieDisplayed.backdrop_path})`,
     backgroundSize: "cover",
@@ -171,7 +182,7 @@ function MoviePage() {
             </p>
 
             <div className="flex flex-col mt-2 gap-1 text-base font-semibold">
-              <div>Release date: {movieDisplayed.release_date}</div>
+              <div>Release date: {formattedReleaseDate}</div>
               <div>Genres: {movieGenres}</div>
             </div>
 
@@ -179,7 +190,7 @@ function MoviePage() {
               <div>Rating:</div>
               <BiStar className="text-base text-secondary font-semibold" />
               <div className="text-secondary font-semibold">
-                {movieDisplayed.vote_average}
+                {movieDisplayed.vote_average.toFixed(1)}
               </div>
             </div>
 
